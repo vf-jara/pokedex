@@ -1,8 +1,11 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { Container } from '../styles'
+import DisplayList from '../components/displayList/displayList'
+import Navigation from '../components/navigation/Navigation'
+import { Container } from './styles'
 
 export default function Home() {
+    const [loading, setLoading] = useState(true)
     const [list, setList] = useState([])
     const [page, setPage] = useState("")
     const [prevPage, setPrevPage] = useState()
@@ -11,8 +14,8 @@ export default function Home() {
         getPokemonsList()
     }, [page])
 
-    const getPokemonsList = () => {
-        axios({
+    const getPokemonsList = async () => {
+        await axios({
             url: page,
             baseURL: 'https://pokeapi.co/api/v2/pokemon/',
             method: 'get',
@@ -20,7 +23,7 @@ export default function Home() {
                 limit: 50,
             }
         }).then((res) => {
-            console.log(res)
+            setLoading(false)
             setList(res.data.results)
             setPrevPage(res.data.previous)
             setNextPage(res.data.next)
@@ -34,19 +37,16 @@ export default function Home() {
         setPage(prevPage)
     }
 
+    if (loading) return <p>Please Wait, Loading</p>
 
     return (
         <Container>
-            <h1>Pokemon List</h1>
-            <ul>
-                {
-                    list.map((pokemon) => (
-                        <li key={pokemon.name}><p>{pokemon.name}</p></li>
-                    ))
-                }
-            </ul>
-            <button onClick={prevPageNav}>Prev</button>
-            <button onClick={nextPageNav}>Next</button>
+            <div>
+                <h1>Pokemon List</h1>
+                <DisplayList list={list} />
+                <Navigation prevPageNav={prevPage ? prevPageNav : null} nextPageNav={nextPage ? nextPageNav : null} />
+
+            </div>
         </Container>
     )
 }
