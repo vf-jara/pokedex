@@ -5,7 +5,7 @@ export default function Navigation({ prevPageNav, nextPageNav }) {
     return (
         <>
             <NavigationContainer>
-                {prevPageNav && <Button onClick={prevPageNav}>Previous</Button>}
+                {prevPageNav && <Button onClick={prevPageNav}>Prev</Button>}
                 {nextPageNav && <Button onClick={nextPageNav}>Next</Button>}
 
             </NavigationContainer>
