@@ -1,19 +1,17 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import DisplayDetails from '../components/DisplayDetails/DisplayDetails'
-import DisplayList from '../components/displayList/displayList'
-import Navigation from '../components/navigation/Navigation'
-import { Container } from './styles'
+import { Link, Outlet } from 'react-router-dom'
+import Header from '../../components/header/Header'
+import Navigation from '../../components/navigation/Navigation'
+import { Container, Display, Item } from './styles'
 
 export default function Home() {
     const [loading, setLoading] = useState(true)
     const [list, setList] = useState([])
-    const [mode, setMode] = useState("details")
     const [page, setPage] = useState("")
     const [prevPage, setPrevPage] = useState()
     const [nextPage, setNextPage] = useState()
     const [count, setCount] = useState(0)
-    const [pokemon, setPokemon] = useState("/bulbasaur")
 
 
 
@@ -49,31 +47,31 @@ export default function Home() {
         setPage(prevPage)
         setCount(count - 50)
     }
-    function selectionHandler(name) {
-        setPage()
-    }
+
 
     if (loading) return <p>Please Wait, Loading</p>
 
     return (
-        <Container>
-            <div>
-                {
-                    mode == "list" &&
-                    <>
-                        <DisplayList list={list} selectionHandler={selectionHandler} />
-                        <Navigation count={count} prevPageNav={prevPage ? prevPageNav : null} nextPageNav={nextPage ? nextPageNav : null} />
-                    </>
-                }
-                {
-                    mode == "details" &&
-                    <>
-                        <DisplayDetails pokemon={pokemon} />
-                    </>
-                }
+        <>
+            <Container>
+                <Header />
+                <div>
+                    <Display>
+                        {
+                            list.map((listItem) => (
+                                <Item key={listItem.name}>
+                                    <Link to={`/pokemon/${listItem.name}`}>
+                                        <p>{listItem.name}</p>
+                                    </Link>
+                                </Item>
+                            ))
 
-            </div>
+                        }
+                    </Display>
+                    <Navigation count={count} prevPageNav={prevPage ? prevPageNav : null} nextPageNav={nextPage ? nextPageNav : null} />
+                </div>
 
-        </Container>
+            </Container>
+        </>
     )
 }

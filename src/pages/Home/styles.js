@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+export const Container = styled.div`
+    margin: 0 auto;
+    padding:10px;
+`
+
 export const Display = styled.div`
     display: grid;
     grid-template-columns:1fr 1fr;
@@ -21,7 +26,7 @@ export const Display = styled.div`
     margin: auto;
 
 `
-export const Item = styled.div`
+export const Item = styled.button`
     display:flex;
     align-items: center;
     justify-content: center;
