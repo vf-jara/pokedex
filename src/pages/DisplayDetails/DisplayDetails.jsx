@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Display, Title } from './styles'
+import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Types, TypesWrapper } from './styles'
 import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
 
 export default function DisplayDetails() {
@@ -9,6 +9,7 @@ export default function DisplayDetails() {
     const [loading, setLoading] = useState(true)
 
     const { pokemon } = useParams()
+    const fallback = useNavigate()
 
     useEffect(() => {
         axios({
@@ -18,7 +19,10 @@ export default function DisplayDetails() {
         }).then((res) => {
             setDetails(res.data)
             setLoading(false)
-            console.log("response: ", res)
+        }).catch((error) => {
+            if (error.response.status === 404) {
+                fallback("/")
+            }
         })
     }, [pokemon])
 
@@ -28,12 +32,22 @@ export default function DisplayDetails() {
         <>
             <Header />
             <Display>
-                <Title>{details.id}{details.name}</Title>
-                <h1></h1>
-                <img src={details.sprites.other.home.front_default}></img>
-                {details.types.map((type) => (
-                    <p>{type.type.name}</p>
-                ))}
+                <LeftBox>
+                    <TitleWrapper>
+                        <Title>#{details.id} {details.name}</Title>
+                    </TitleWrapper>
+                    <SpriteWrapper>
+                        <Sprite src={details.sprites.other.home.front_default}></Sprite>
+                    </SpriteWrapper>
+                </LeftBox>
+                <RightBox>
+                    <h3>Type:</h3>
+                    <TypesWrapper>
+                        {details.types.map((type) => (
+                            <Types key={type.type.name}>{type.type.name}</Types>
+                        ))}
+                    </TypesWrapper>
+                </RightBox>
             </Display>
         </>
     )

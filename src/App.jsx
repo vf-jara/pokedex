@@ -15,8 +15,8 @@ const router = createBrowserRouter([
   },
   {
     path: "/pokemon/:pokemon",
-    element: <DisplayDetails />
-  }
+    element: <DisplayDetails />,
+  },
 ])
 function App() {
   return (
