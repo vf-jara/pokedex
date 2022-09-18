@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import pokebg from '../../assets/images/pokebg.svg'
 
 export const Display = styled.div`
@@ -60,7 +60,14 @@ export const SpriteWrapper = styled.div`
     justify-content: center;
     height:100%;
 `
-export const Types = styled.p`
+export const Attributes = styled.div`
+    ${(props) =>
+        props.variant === "types" && css`
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        `
+    };
     padding: 5px 10px;
     background-color: white;
     border-radius:5px;
@@ -77,4 +84,7 @@ export const AttributesWrapper = styled.div`
     padding:10px;
     margin:10px 0;
 
+`
+export const TypeImage = styled.img`
+    width:40px;
 `

@@ -2,12 +2,12 @@ import styled from "styled-components";
 import pokeball from '../../assets/images/pokeball.png'
 
 export const Container = styled.div`
-    margin: auto;
+    margin: 0 auto;
     max-width: 1100px;
-    padding: 0 20px;
     display:flex;
     justify-content: space-between;
-    gap:20px;
+    gap:10px;
+    padding:10px;
     min-height: 80px;
     align-items: center;
 
@@ -31,7 +31,7 @@ export const Input = styled.input`
     flex-grow:1;
     background-color:transparent;
     border: none;
-    padding: 5px 20px;
+    padding: 5px;
     outline:none;
 `
 export const Button = styled.button`

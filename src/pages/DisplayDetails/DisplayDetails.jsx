@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Types, AttributesWrapper } from './styles'
+import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Attributes, AttributesWrapper, TypeImage } from './styles'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
@@ -45,14 +45,19 @@ export default function DisplayDetails() {
                     <h2>Type:</h2>
                     <AttributesWrapper>
                         {details.types.map((type) => (
-                            <Types key={type.type.name}>{type.type.name}</Types>
+                            <Attributes key={type.type.name} variant="types">
+                                <TypeImage src={`../../src/assets/images/pokemonTypes/${type.type.name}.png`} />
+                                <p>
+                                    {type.type.name}
+                                </p>
+                            </Attributes>
                         ))}
                     </AttributesWrapper>
-                    <hr />
+                    <hr /><br />
                     <h2>Status:</h2>
                     <AttributesWrapper variant="status">
                         {details.stats.map((stat) => (
-                            <Types>{stat.stat.name}: {stat.base_stat}</Types>
+                            <Attributes key={stat.stat.name}>{stat.stat.name}: {stat.base_stat}</Attributes>
                         ))}
                     </AttributesWrapper>
                 </RightBox>
