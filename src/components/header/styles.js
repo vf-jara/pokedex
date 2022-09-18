@@ -18,6 +18,7 @@ export const Form = styled.form`
     background-color: #FDDEDE;
     border-radius: 5px;
     padding:10px;
+    border: 2px solid black;
 `
 export const Logo = styled.img.attrs({
     src: `${pokeball}`
