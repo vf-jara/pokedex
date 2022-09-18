@@ -46,7 +46,7 @@ export default function DisplayDetails() {
                     <AttributesWrapper>
                         {details.types.map((type) => (
                             <Attributes key={type.type.name} variant="types">
-                                <TypeImage src={`../../src/assets/images/pokemonTypes/${type.type.name}.png`} />
+                                <TypeImage src={`/pokemonTypes/${type.type.name}.png`} />
                                 <p>
                                     {type.type.name}
                                 </p>
