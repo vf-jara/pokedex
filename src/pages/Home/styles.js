@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     margin: 0 auto;
-    padding:10px;
 `
 
 export const Display = styled.div`

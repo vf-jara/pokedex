@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Types, TypesWrapper } from './styles'
+import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Types, AttributesWrapper } from './styles'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
+import Loader from '../../components/loader/Loader'
 
 export default function DisplayDetails() {
     const [details, setDetails] = useState([])
@@ -26,7 +27,7 @@ export default function DisplayDetails() {
         })
     }, [pokemon])
 
-    if (loading) return <p>Please Wait, Loading</p>
+    if (loading) return <Loader />
 
     return (
         <>
@@ -41,12 +42,19 @@ export default function DisplayDetails() {
                     </SpriteWrapper>
                 </LeftBox>
                 <RightBox>
-                    <h3>Type:</h3>
-                    <TypesWrapper>
+                    <h2>Type:</h2>
+                    <AttributesWrapper>
                         {details.types.map((type) => (
                             <Types key={type.type.name}>{type.type.name}</Types>
                         ))}
-                    </TypesWrapper>
+                    </AttributesWrapper>
+                    <hr />
+                    <h2>Status:</h2>
+                    <AttributesWrapper variant="status">
+                        {details.stats.map((stat) => (
+                            <Types>{stat.stat.name}: {stat.base_stat}</Types>
+                        ))}
+                    </AttributesWrapper>
                 </RightBox>
             </Display>
         </>

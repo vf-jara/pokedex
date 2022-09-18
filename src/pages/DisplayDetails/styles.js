@@ -2,14 +2,20 @@ import styled from 'styled-components'
 import pokebg from '../../assets/images/pokebg.svg'
 
 export const Display = styled.div`
-    display: flex;
-    flex-wrap:wrap;
-    gap: 30px;
+    display:grid;
+    grid-template-columns:1fr;
+    @media(min-width:720px){
+        grid-template-columns:1fr 1fr;
+    }
+    gap: 10px;
     padding: 10px;
     border: 2px solid black;
     border-radius:6px;
     min-height: 60vh;
     max-height: 60vh;
+    @media(max-width:720px){
+        max-height:75vh;
+    }
     max-width: 1100px;
     background-color: #e5e5e5;
     overflow-y: auto;
@@ -23,7 +29,10 @@ export const LeftBox = styled.div`
     flex-grow: 1;
 `
 export const RightBox = styled.div`
-    width:50%;
+    border:2px solid black;
+    padding:10px;
+    border-radius:5px;
+    background-color: white;
 `
 export const Title = styled.h1`
 text-align:center;
@@ -36,7 +45,7 @@ export const TitleWrapper = styled.div`
     border:2px solid black;
 `
 export const Sprite = styled.img`
-    width: 200px;
+    width: 75%;;
 `
 export const SpriteWrapper = styled.div`
     background-image: url(${pokebg});
@@ -49,14 +58,23 @@ export const SpriteWrapper = styled.div`
     display:flex;
     align-items: center;
     justify-content: center;
+    height:100%;
 `
 export const Types = styled.p`
     padding: 5px 10px;
-    background-color: #FDDEDE;
+    background-color: white;
+    border-radius:5px;
 `
-export const TypesWrapper = styled.div`
+export const AttributesWrapper = styled.div`
     padding:5px;
     display: flex;
+    flex-wrap:wrap;
+    flex-direction: ${props => props.variant === "status" ? "column" : "row"};
+    border:2px solid black;
     gap:10px;
+    background-color:#FDDEDE;
+    border-radius:5px;
+    padding:10px;
+    margin:10px 0;
 
 `

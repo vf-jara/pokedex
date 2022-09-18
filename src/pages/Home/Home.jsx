@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, Outlet } from 'react-router-dom'
 import Header from '../../components/header/Header'
+import Loader from '../../components/loader/Loader'
 import Navigation from '../../components/navigation/Navigation'
 import { Container, Display, Item } from './styles'
 
@@ -49,7 +50,7 @@ export default function Home() {
     }
 
 
-    if (loading) return <p>Please Wait, Loading</p>
+    if (loading) return <Loader />
 
     return (
         <>
