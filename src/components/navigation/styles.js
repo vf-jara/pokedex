@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const NavigationContainer = styled.div`
     display:flex;
     justify-content: center;
-    gap:15px;
     align-items:center;
 `
 
