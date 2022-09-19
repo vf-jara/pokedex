@@ -14,7 +14,7 @@ export default function Navigation({ prevPageNav, nextPageNav, count }) {
                 </div>
 
                 <div>
-                    {nextPageNav ? <Button onClick={nextPageNav}>Next</Button> : <Button onClick={nextPageNav}>Next</Button>}
+                    {nextPageNav ? <Button onClick={nextPageNav}>Next</Button> : <Button disabled>Next</Button>}
                 </div>
 
             </NavigationContainer>

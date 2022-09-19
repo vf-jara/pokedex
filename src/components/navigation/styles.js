@@ -16,6 +16,7 @@ export const Button = styled.button`
     padding:15px;
     margin: 15px;
     font-size:18px;
+    font-weight: bold;
     cursor:pointer;
 `
 export const Pagination = styled.span`

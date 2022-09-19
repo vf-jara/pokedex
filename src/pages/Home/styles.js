@@ -19,6 +19,9 @@ export const Display = styled.div`
     border-radius:6px;
     min-height: 60vh;
     max-height: 60vh;
+    @media(max-width:720px){
+        max-height:65vh;
+    }
     max-width: 1100px;
     background-color: #e5e5e5;
     overflow-y: auto;

@@ -66,12 +66,17 @@ export default function DisplayDetails() {
                 </RightBox>
             </Display>
             <DetailsNavigation>
-                <Link to={`/pokemon/${details.id - 1}`}>
-                    <NavButton>
-                        Prev
-                    </NavButton>
+                {
+                    details.id == 1 ?
+                        <NavButton disabled>Prev</NavButton>
+                        :
+                        <Link to={`/pokemon/${details.id - 1}`}>
+                            <NavButton>
+                                Prev
+                            </NavButton>
 
-                </Link>
+                        </Link>
+                }
                 <Link to={"/"}>
                     <NavButton>
                         Home
