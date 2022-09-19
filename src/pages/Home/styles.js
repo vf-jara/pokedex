@@ -29,6 +29,7 @@ export const Display = styled.div`
 
 `
 export const Item = styled.button`
+border: 2px solid black;
     font-size:18px;
     font-weight: bold;
     display:flex;

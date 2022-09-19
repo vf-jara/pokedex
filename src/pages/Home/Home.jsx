@@ -60,8 +60,8 @@ export default function Home() {
                     <Display>
                         {
                             list.map((listItem) => (
-                                <Link to={`/pokemon/${listItem.name}`}>
-                                    <Item key={listItem.name}>
+                                <Link key={listItem.name} to={`/pokemon/${listItem.name}`}>
+                                    <Item >
                                         <p>{listItem.name}</p>
                                     </Item>
                                 </Link>

@@ -7,6 +7,10 @@ export const NavigationContainer = styled.div`
 `
 
 export const Button = styled.button`
+    display:flex;
+    gap: 5px;
+    align-items:center;
+    justify-content: center;
     border: 2px solid black;
     border-radius: 5px;
     background-color: #FDDEDE;

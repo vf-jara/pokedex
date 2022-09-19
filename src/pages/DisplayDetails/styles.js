@@ -97,6 +97,10 @@ export const DetailsNavigation = styled.div`
 `
 
 export const NavButton = styled.button`
+    display: flex;
+    gap:5px;
+    align-items:center;
+    justify-content: center;
     border: 2px solid black;
     border-radius: 5px;
     background-color: #FDDEDE;

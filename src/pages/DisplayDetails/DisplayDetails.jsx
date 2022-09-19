@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Attributes, AttributesWrapper, TypeImage, DetailsNavigation, NavButton } from './styles'
 import axios from 'axios'
+import { ArrowRight, ArrowLeft } from 'phosphor-react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Loader from '../../components/loader/Loader'
@@ -72,6 +73,8 @@ export default function DisplayDetails() {
                         :
                         <Link to={`/pokemon/${details.id - 1}`}>
                             <NavButton>
+
+                                <ArrowLeft size={20} weight="bold" />
                                 Prev
                             </NavButton>
 
@@ -84,7 +87,7 @@ export default function DisplayDetails() {
                 </Link>
                 <Link to={`/pokemon/${details.id + 1}`}>
                     <NavButton>
-                        Next
+                        Next<ArrowRight size={20} weight="bold" />
                     </NavButton>
 
                 </Link>
