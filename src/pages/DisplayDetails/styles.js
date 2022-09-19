@@ -14,7 +14,7 @@ export const Display = styled.div`
     min-height: 60vh;
     max-height: 60vh;
     @media(max-width:720px){
-        max-height:75vh;
+        max-height:65vh;
     }
     max-width: 1100px;
     background-color: #e5e5e5;
@@ -71,6 +71,7 @@ export const Attributes = styled.div`
     padding: 5px 10px;
     background-color: white;
     border-radius:5px;
+    font-weight:bold;
 `
 export const AttributesWrapper = styled.div`
     padding:5px;
@@ -87,4 +88,23 @@ export const AttributesWrapper = styled.div`
 `
 export const TypeImage = styled.img`
     width:40px;
+`
+
+export const DetailsNavigation = styled.div`
+    display: flex;
+    justify-content: center;
+    gap:15px;
+`
+
+export const NavButton = styled.button`
+    border: 2px solid black;
+    border-radius: 5px;
+    background-color: #FDDEDE;
+    width: 110px;
+    font-size: 16px;
+    padding:15px;
+    margin-top:10px;
+    font-size:18px;
+    font-weight: bold;
+    cursor:pointer;
 `

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Attributes, AttributesWrapper, TypeImage } from './styles'
+import { Display, LeftBox, RightBox, Sprite, SpriteWrapper, Title, TitleWrapper, Attributes, AttributesWrapper, TypeImage, DetailsNavigation, NavButton } from './styles'
 import axios from 'axios'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import Header from '../../components/header/Header'
 import Loader from '../../components/loader/Loader'
 
@@ -10,6 +10,7 @@ export default function DisplayDetails() {
     const [loading, setLoading] = useState(true)
 
     const { pokemon } = useParams()
+
     const fallback = useNavigate()
 
     useEffect(() => {
@@ -26,6 +27,8 @@ export default function DisplayDetails() {
             }
         })
     }, [pokemon])
+
+    let id = details.id
 
     if (loading) return <Loader />
 
@@ -62,6 +65,25 @@ export default function DisplayDetails() {
                     </AttributesWrapper>
                 </RightBox>
             </Display>
+            <DetailsNavigation>
+                <Link to={`/pokemon/${details.id - 1}`}>
+                    <NavButton>
+                        Prev
+                    </NavButton>
+
+                </Link>
+                <Link to={"/"}>
+                    <NavButton>
+                        Home
+                    </NavButton>
+                </Link>
+                <Link to={`/pokemon/${details.id + 1}`}>
+                    <NavButton>
+                        Next
+                    </NavButton>
+
+                </Link>
+            </DetailsNavigation>
         </>
     )
 }

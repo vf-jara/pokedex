@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, NavigationContainer } from './styles'
+import { Button, NavigationContainer, Pagination } from './styles'
 
 export default function Navigation({ prevPageNav, nextPageNav, count }) {
     return (
@@ -10,7 +10,7 @@ export default function Navigation({ prevPageNav, nextPageNav, count }) {
                 </div>
 
                 <div>
-                    <span>{count + 1} - {count + 50}</span>
+                    <Pagination>{count + 1} - {count + 50}</Pagination>
                 </div>
 
                 <div>

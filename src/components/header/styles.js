@@ -38,4 +38,5 @@ export const Input = styled.input`
 export const Button = styled.button`
     background:none;
     border: none;
+    cursor:pointer;
 `

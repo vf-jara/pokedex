@@ -26,6 +26,8 @@ export const Display = styled.div`
 
 `
 export const Item = styled.button`
+    font-size:18px;
+    font-weight: bold;
     display:flex;
     align-items: center;
     justify-content: center;
@@ -33,7 +35,10 @@ export const Item = styled.button`
     min-height: 50px;
     padding:3px 5px;
     margin: 3px 0;
-    background: #ffffff;
+    background-color: #ffffff;
+    &:hover {
+        background-color:#FDDEDE;
+    }
     cursor: pointer;
     width:100%;
 `

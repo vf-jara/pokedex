@@ -17,7 +17,7 @@ export default function Header() {
             <Container>
                 <Link to={"/"}><Logo src={pokeball} alt="Pokeball" /></Link>
                 <Form onSubmit={handleSubmit}>
-                    <Input onChange={(e) => setSearch((e.target.value).toLowerCase())} type="search" placeholder="Busque por nome ou ID"></Input>
+                    <Input onChange={(e) => setSearch((e.target.value).toLowerCase())} type="search" placeholder="Search by name or ID"></Input>
                     <Button type="submit"><img src={icon}></img></Button>
                 </Form>
             </Container>
